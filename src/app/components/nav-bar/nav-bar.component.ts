@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'nav-bar',
@@ -11,7 +12,11 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './nav-bar.component.css',
 })
 export class NavBarComponent implements OnInit {
+  themeService = inject(ThemeService)
+
+
   items: MenuItem[] | undefined;
+
 
   ngOnInit() {
     this.items = [
@@ -61,4 +66,5 @@ export class NavBarComponent implements OnInit {
       },
     ];
   }
+
 }
