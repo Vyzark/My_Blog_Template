@@ -1,43 +1,34 @@
-<div class="card container-fluid">
-    <p-menubar [model]="items" />
-    <div>
+<div class="card row navbar fixed-top mx-0">
+    <p-menubar [model]="items" class="col-8" />
+    <div class="col-3">
         <ul>
             <li>
                 <a href="#">
                     <span></span>
                     <span></span>
-                    <!-- <span></span>
-                    <span></span> -->
                     <span class="pi pi-facebook"></span>
                 </a>
             </li>
+
             <li>
                 <a href="#">
                     <span></span>
                     <span></span>
-                    <!-- <span></span>
-                    <span></span> -->
                     <span class="pi pi-github"></span>
                 </a>
             </li>
+
             <li>
                 <a href="#">
                     <span></span>
                     <span></span>
-                    <!-- <span></span>
-                    <span></span> -->
-                    <span class="pi pi-instagram"></span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <!-- <span></span> -->
-                    <!-- <span></span> -->
                     <span class="pi pi-linkedin"></span>
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="mode col-1">
+        <p-button icon="pi pi-moon" class="moon" [rounded]="true" [raised]="true" />
+        <p-button icon="pi pi-sun" class="sun d-none" [rounded]="true" [raised]="true" />
     </div>
 </div>

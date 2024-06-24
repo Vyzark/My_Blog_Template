@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'nav-bar',
   standalone: true,
-  imports: [MenubarModule],
+  imports: [MenubarModule, ButtonModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css',
 })
