@@ -94,3 +94,26 @@ ul li:nth-child(3):hover span {
 ul li:nth-child(4):hover span {
   background: #fceb00 !important;
 }
+
+a.p-menuitem-link > span.menu-text {
+  color: black;
+}
+div.dark a.p-menuitem-link > span.menu-text {
+  color: white;
+}
+a.p-menuitem-link > span.pi {
+  color: #888;
+}
+div.dark a.p-menuitem-link > span.pi {
+  color: #bbb !important;
+}
+
+/*TODO: TEST ng-deep after fixing routes */
+::ng-deep .p-menuitem-link-active {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+}
+.active {
+  font-size: 1.1rem;
+  font-weight: 600;
+}

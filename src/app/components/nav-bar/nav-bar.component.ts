@@ -3,6 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { ThemeService } from '../../services/theme.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'nav-bar',
@@ -13,6 +14,7 @@ import { ThemeService } from '../../services/theme.service';
 })
 export class NavBarComponent implements OnInit {
   themeService = inject(ThemeService)
+  router = inject(Router)
 
 
   items: MenuItem[] | undefined;
@@ -23,46 +25,34 @@ export class NavBarComponent implements OnInit {
       {
         label: 'Home',
         icon: 'pi pi-home',
+        command: () => {
+          //TODO: ADD PATH
+          this.router.navigateByUrl("");
+      }
       },
       {
-        label: 'Features',
+        label: 'Posts',
         icon: 'pi pi-star',
-      },
-      {
-        label: 'Projects',
-        icon: 'pi pi-search',
-        items: [
-          {
-            label: 'Components',
-            icon: 'pi pi-bolt',
-          },
-          {
-            label: 'Blocks',
-            icon: 'pi pi-server',
-          },
-          {
-            label: 'UI Kit',
-            icon: 'pi pi-pencil',
-          },
-          {
-            label: 'Templates',
-            icon: 'pi pi-palette',
-            items: [
-              {
-                label: 'Apollo',
-                icon: 'pi pi-palette',
-              },
-              {
-                label: 'Ultima',
-                icon: 'pi pi-palette',
-              },
-            ],
-          },
-        ],
+        command: () => {
+          //TODO: ADD PATH
+          this.router.navigateByUrl("");
+      }
       },
       {
         label: 'Contact',
         icon: 'pi pi-envelope',
+        command: () => {
+          //TODO: ADD PATH
+          this.router.navigateByUrl("");
+      }
+      },
+      {
+        label: 'Create Post',
+        icon: 'pi pi-pen-to-square',
+        command: () => {
+          //TODO: ADD PATH
+          this.router.navigateByUrl("");
+      }
       },
     ];
   }

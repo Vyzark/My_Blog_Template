@@ -1,5 +1,16 @@
 <div class="card row navbar fixed-top mx-0" [class]="{'dark': themeService.isDark}">
-    <p-menubar [model]="items" class="col-sm-8" />
+    <p-menubar [model]="items" class="col-sm-8">
+        <!--TODO: NEEDS TESTING ---- START -->
+        <ng-template pTemplate="item" let-item>
+            <ng-container>
+                <a [routerLink]="item.route" class="p-menuitem-link">
+                    <span [class]="item.icon"></span>
+                    <span class="ms-2 menu-text">{{ item.label }}</span>
+                </a>
+            </ng-container>
+        </ng-template>
+    </p-menubar>
+    <!-- NEEDS TESTING ---- END -->
     <div class="col col-sm-3 d-inline d-sm-block">
         <ul>
             <li>
