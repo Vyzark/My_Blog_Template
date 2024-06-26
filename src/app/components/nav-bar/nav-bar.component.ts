@@ -13,12 +13,10 @@ import { Router } from '@angular/router';
   styleUrl: './nav-bar.component.css',
 })
 export class NavBarComponent implements OnInit {
-  themeService = inject(ThemeService)
-  router = inject(Router)
-
+  themeService = inject(ThemeService);
+  router = inject(Router);
 
   items: MenuItem[] | undefined;
-
 
   ngOnInit() {
     this.items = [
@@ -27,34 +25,33 @@ export class NavBarComponent implements OnInit {
         icon: 'pi pi-home',
         command: () => {
           //TODO: ADD PATH
-          this.router.navigateByUrl("");
-      }
+          this.router.navigateByUrl('');
+        },
       },
       {
         label: 'Posts',
         icon: 'pi pi-star',
         command: () => {
           //TODO: ADD PATH
-          this.router.navigateByUrl("");
-      }
+          this.router.navigateByUrl('');
+        },
       },
       {
         label: 'Contact',
         icon: 'pi pi-envelope',
         command: () => {
           //TODO: ADD PATH
-          this.router.navigateByUrl("");
-      }
+          this.router.navigateByUrl('');
+        },
       },
       {
         label: 'Create Post',
         icon: 'pi pi-pen-to-square',
         command: () => {
           //TODO: ADD PATH
-          this.router.navigateByUrl("");
-      }
+          this.router.navigateByUrl('');
+        },
       },
     ];
   }
-
 }

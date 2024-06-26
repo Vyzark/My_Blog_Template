@@ -7,7 +7,6 @@ import { Inject, Injectable, inject } from '@angular/core';
 export class ThemeService {
   isDark: boolean = false;
 
-  //TODO: Clarify how document injection works inside the constructor
   private constructor(@Inject(DOCUMENT) private document: Document) {}
 
   changeMode() {
