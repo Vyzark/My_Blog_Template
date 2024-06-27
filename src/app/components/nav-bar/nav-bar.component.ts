@@ -24,23 +24,21 @@ export class NavBarComponent implements OnInit {
         label: 'Home',
         icon: 'pi pi-home',
         command: () => {
-          //TODO: ADD PATH
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('/home');
         },
       },
       {
         label: 'Posts',
         icon: 'pi pi-star',
         command: () => {
-          //TODO: ADD PATH
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('/posts');
         },
       },
       {
         label: 'Contact',
         icon: 'pi pi-envelope',
         command: () => {
-          //TODO: ADD PATH
+          //TODO: ADD PATH FOR CONTACT PAGE WHEN CREATED
           this.router.navigateByUrl('');
         },
       },
@@ -48,8 +46,7 @@ export class NavBarComponent implements OnInit {
         label: 'Create Post',
         icon: 'pi pi-pen-to-square',
         command: () => {
-          //TODO: ADD PATH
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('/new');
         },
       },
     ];
