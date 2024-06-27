@@ -109,11 +109,12 @@ div.dark a.p-menuitem-link > span.pi {
 }
 
 /*TODO: TEST ng-deep after fixing routes */
-::ng-deep .p-menuitem-link-active {
-  font-size: 1.1rem !important;
-  font-weight: 600 !important;
+::ng-deep a.p-menuitem-link span {
+  pointer-events: none
 }
-.active {
-  font-size: 1.1rem;
-  font-weight: 600;
+::ng-deep a.active span {
+  font-weight: 550 !important;
+  color: #8f48d2 !important;
 }
+/* ::ng-deep:nth-child(4) .p-menuitem-link {
+} */

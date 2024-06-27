@@ -3,14 +3,15 @@
         <!--TODO: NEEDS TESTING ---- START -->
         <ng-template pTemplate="item" let-item>
             <ng-container>
-                <a [routerLink]="item.route" class="p-menuitem-link">
+                <a [routerLink]="item.route" class="p-menuitem-link"
+                [ngClass]="{ 'active': item.route === router.url}">
                     <span [class]="item.icon"></span>
                     <span class="ms-2 menu-text">{{ item.label }}</span>
                 </a>
             </ng-container>
         </ng-template>
     </p-menubar>
-    <!-- NEEDS TESTING ---- END -->
+    <!--TODO: NEEDS TESTING ---- END -->
     <div class="col col-sm-3 d-inline d-sm-block">
         <ul>
             <li>
