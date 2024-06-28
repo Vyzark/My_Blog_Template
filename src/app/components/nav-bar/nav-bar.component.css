@@ -8,7 +8,7 @@ div.navbar {
     color: #e2e2e2;
   }
 }
-div.dark {
+div.navbar.dark {
   background: #e2e2e2 !important;
   & span.pi {
     color: #2a2a2a !important;
@@ -58,17 +58,17 @@ ul li span {
   font-size: 30px !important;
   transition: 1.5s ease-out;
 }
-div.dark ul li span {
+div.dark ul li span.pi {
   color: #e2e2e2;
 }
-ul li:hover span {
+ul li:hover span.pi {
   z-index: 1000;
   transition: 0.3s;
   color: #2a2a2a;
   box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.5);
 }
-div.dark ul li:hover span {
-  color: #e2e2e2;
+div.dark ul li:hover span.pi {
+  color: #e2e2e2 !important;
 }
 ul li:hover span:nth-child(3) {
   transform: translate(20px, -20px);
@@ -91,9 +91,9 @@ ul li:nth-child(2):hover span {
 ul li:nth-child(3):hover span {
   background: #ea6e96 !important;
 }
-ul li:nth-child(4):hover span {
+/* ul li:nth-child(4):hover span {
   background: #fceb00 !important;
-}
+} */
 
 a.p-menuitem-link > span.menu-text {
   color: black;
@@ -108,13 +108,12 @@ div.dark a.p-menuitem-link > span.pi {
   color: #bbb !important;
 }
 
-/*TODO: TEST ng-deep after fixing routes */
 ::ng-deep a.p-menuitem-link span {
   pointer-events: none
 }
 ::ng-deep a.active span {
   font-weight: 550 !important;
-  color: #8f48d2 !important;
+  color: #b975f9 !important;
 }
 /* ::ng-deep:nth-child(4) .p-menuitem-link {
 } */

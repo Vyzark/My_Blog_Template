@@ -3,16 +3,25 @@
         <h1 class="col-6 col-md-12 text-wrap">Your Daily <i class="tech-font">bit</i> Blog</h1>
     </div>
     <div class="sub row container mx-auto">
-        <form class="col-3 col-md-6 mx-auto" [formGroup]="myForm" (ngSubmit)="onSubmit()">
-            <p-inputGroup class="">
-                <button type="submit" class="w-25" pButton label="Subscribe"></button>
-                <input type="email" class="w-75 p-2" pInputText placeholder="name@example.com" formControlName="email"/>
-            </p-inputGroup>
-        </form>
+        <p-card styleClass="user-form" class="flex justify-content-center">
+            <form class="col-3 col-md-6 mx-auto" [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+                <p-inputGroup class="d-block">
+                    <button type="submit" class="w-25" pButton label="Subscribe"></button>
+                    <!--TODO: Add class if myForm.valid or myForm.invalid -->
+                    <input id="subscribe" type="email" pInputText placeholder="name@example.com"
+                        formControlName="email" />
+                </p-inputGroup>
+                @if (submitted && myForm.dirty && myForm.invalid) {
+                    <div>
+                        <small class="d-block p-error">Invalid email address</small>
+                    </div>
+                }
+            </form>
+        </p-card>
     </div>
 </div>
 
 <div class="featured">
-    <!--TODO: ADD POST CARDS FOR A "FEATURED" SECTION -->
+    <!--TODO: ADD POST CARDS FOR A "FEATURED" SECTION with a for loop -->
     <post-card></post-card>
 </div>

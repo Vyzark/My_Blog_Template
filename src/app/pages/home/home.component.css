@@ -52,6 +52,10 @@ p-inputGroup {
     & input, button {
         font-size: 1.1rem;
     }
+    & input {
+      width: 70%;
+      padding: 15px;
+    }
     & input::placeholder {
         font-size: 1.1rem;
     }
@@ -62,5 +66,14 @@ p-inputGroup {
     top: 75vh;
 }
 
+form.ng-submitted input.ng-invalid {
+  border: 1px solid crimson;
+}
+.invalid-msg {
+  color: crimson;
+}
+.p-error {
+  font-weight: 600;
+}
 
 /*TODO: ADD MEDIA QUERIES FOR HERO FONT SIZE AND BACKGROUND */

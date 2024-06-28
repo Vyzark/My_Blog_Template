@@ -6,23 +6,33 @@ import Swal from 'sweetalert2';
 import {
   FormControl,
   FormGroup,
+  FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'home',
   standalone: true,
-  imports: [ButtonModule, InputGroupModule, PostCardComponent, ReactiveFormsModule],
+  imports: [
+    ButtonModule,
+    InputGroupModule,
+    PostCardComponent,
+    ReactiveFormsModule,
+    FormsModule,
+    CardModule,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent {
-  //TODO: Check why validator is not working, anything written in the field will go through
+  submitted: boolean = false
+
   myForm: FormGroup = new FormGroup({
     email: new FormControl(null, [
-      Validators.pattern('/^[^@s]+@[^@s]+.[^@s]+$/'),
+      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'),
     ]),
   });
 
@@ -35,18 +45,26 @@ export class HomeComponent {
   }
 
   onSubmit() {
-    try {
-      // Store subscription info in Local Storage
-      localStorage.setItem('subscribedEmail', this.myForm.value.email);
+    if (this.myForm.value.email === "") {
+      this.submitted = false
+    } else {
+      this.submitted = true
+    }
+    
+    if (this.myForm.valid && this.myForm.value.email !== null && this.myForm.value.email !== "") {
+      try {
+        // Store subscription info in Local Storage
+        localStorage.setItem('subscribedEmail', this.myForm.value.email);
 
-      Swal.fire({
-      title: 'Subscribed!',
-      text: 'Thank you for your subscription.',
-      icon: 'success',
-      backdrop: false,
-      });
-    } catch (error) {
-      console.log(error);
+        Swal.fire({
+          title: 'Subscribed!',
+          text: 'Thank you for your subscription.',
+          icon: 'success',
+          backdrop: false,
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 }
