@@ -31,7 +31,7 @@ div.card-body {
   }
 }
 .title {
-    color: black;
+  color: black;
 }
 .text p {
   font-size: var(--base) rem;
@@ -44,13 +44,3 @@ div.card-body {
   -webkit-line-clamp: 6;
   display: -webkit-box;
 }
-/* .card-body p:after {
-    content: "";
-    background: linear-gradient(to right, transparent, var(--bg-color) 80%);
-    display: block;
-    height: calc(1.481vh * var(--base) + 1px);
-    position: absolute;
-    inset-block-end: 0;
-    pointer-events: none;
-    width: 100%;
-} */

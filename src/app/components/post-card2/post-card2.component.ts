@@ -3,10 +3,10 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 
 @Component({
-  selector: 'post-card',
+  selector: 'post-card2',
   standalone: true,
   imports: [CardModule, ButtonModule],
-  templateUrl: './post-card.component.html',
-  styleUrl: './post-card.component.css',
+  templateUrl: './post-card2.component.html',
+  styleUrl: './post-card2.component.css',
 })
-export class PostCardComponent {}
+export class PostCard2Component {}

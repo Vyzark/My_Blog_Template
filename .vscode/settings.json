@@ -19,5 +19,5 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
   "peacock.color": "#176194",
-  "cSpell.words": ["inputgroup", "lara", "Swal", "sweetalert"]
+  "cSpell.words": ["inputgroup", "lara", "swal", "Swal", "sweetalert"]
 }
