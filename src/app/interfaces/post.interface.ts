@@ -3,8 +3,13 @@ export interface Post {
     content: string;
     author: string;
     img_url: string;
-    category: string;
+    category: Category;
     featured: boolean;
     published_at: Date;
     last_edit_at?: Date;
+}
+
+interface Category {
+    category: string;
+    icon: string;
 }

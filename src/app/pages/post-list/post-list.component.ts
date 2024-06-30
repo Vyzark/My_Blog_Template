@@ -29,8 +29,6 @@ export class PostListComponent {
 
   ngOnInit() {
     this.postList = this.postService.getAll();
-    console.log(this.postList[0].content);
-    
   }
 
   filterList(cat: string) {
@@ -38,6 +36,9 @@ export class PostListComponent {
       this.postList = this.postService.getAll();
     } else {
       this.postList = this.postService.getByCategory(cat);
+      console.log(cat);
+      
     }
+    return this.postList
   }
 }

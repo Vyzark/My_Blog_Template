@@ -15,6 +15,7 @@ import { PostCard2Component } from '../../components/post-card2/post-card2.compo
 import { Post } from '../../interfaces/post.interface';
 import { PostService } from '../../services/post.service';
 import { DividerModule } from 'primeng/divider';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'home',
@@ -27,7 +28,7 @@ import { DividerModule } from 'primeng/divider';
     ReactiveFormsModule,
     FormsModule,
     CardModule,
-    DividerModule
+    DividerModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -36,6 +37,7 @@ import { DividerModule } from 'primeng/divider';
 export class HomeComponent {
   // Injections
   postService = inject(PostService);
+  themeService = inject(ThemeService);
 
   // Simple variables and lists
   submitted: boolean = false;
@@ -64,7 +66,7 @@ export class HomeComponent {
   // Methods
   ngOnInit() {
     document.body.classList.add('body-bg');
-    this.postList = this.postService.getByCategory("featured");//.filter(post => post.featured);
+    this.postList = this.postService.getAll().filter((post) => post.featured);
   }
 
   ngOnDestroy() {

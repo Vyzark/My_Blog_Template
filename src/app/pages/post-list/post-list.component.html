@@ -1,16 +1,15 @@
-<div class="container">
-    <div class="tech text-center my-4 mx-lg-5">
+<div class="container row mx-auto justify-content-center">
+    <div class="tech text-center mb-4 mt-1 mx-lg-5 col-12">
         <h1>bits_archive</h1>
         <hr class="mx-5">
     </div>
-    <!-- TODO: FIX COLORS FOR LIGHT/DARK MODES -->
     <div class="buttons d-flex justify-content-center">
         <!-- TODO: Change to a Tab Menu with active item tracking -->
         <p-buttonGroup class="mb-4">
             <p-button label="All" icon="pi pi-asterisk" size="small" (onClick)="filterList('all')" />
             @for (cat of postService.categoryList; track $index) {
-            <p-button [label]="postService.capitalize(cat.category)" [icon]="cat.icon" size="small"
-                (onClick)="filterList(cat.category)" [class]="cat.category" />
+                <p-button [label]="postService.capitalize(cat.category)" [icon]="cat.icon" size="small"
+                    (onClick)="filterList(cat.category)" [class]="cat.category" />
             }
         </p-buttonGroup>
     </div>
@@ -18,13 +17,13 @@
     <div class="mx-auto justify-content-center">
         <!-- TODO: Fix for loop to print even/odds -->
         @for (post of postList; track $index; let even = $even) {
-            @if (even) {
-                <post-card [myPost]="post" />
-                <p-divider />
-            } @else {
-                <post-card2 [myPost2]="post" />
-                <p-divider />
-            }
+        @if (even) {
+        <post-card [myPost]="post" />
+        <p-divider />
+        } @else {
+        <post-card2 [myPost2]="post" />
+        <p-divider />
+        }
         } @empty {
         <h2 class="text-center mt-5 text-body-secondary">The folder is empty.</h2>
         }

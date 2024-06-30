@@ -20,6 +20,9 @@ div.wrapper {
   background-color: var(--bg-color);
   box-shadow: 2px 2px 5px #00000030;
 
+  &.wrapper.dark {
+    background-color: #ffffffee;
+  }
   @media (width > 991.98px) {
     max-height: calc(30vh * var(--base));
   }

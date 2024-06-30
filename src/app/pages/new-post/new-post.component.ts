@@ -15,6 +15,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import Swal from 'sweetalert2';
+import { ThemeService } from '../../services/theme.service';
 
 type Category = {
   category: string;
@@ -34,17 +36,29 @@ type Category = {
     CheckboxModule,
     ButtonModule,
     IconFieldModule,
-    InputIconModule
+    InputIconModule,
   ],
   templateUrl: './new-post.component.html',
   styleUrl: './new-post.component.css',
 })
-
 export class NewPostComponent {
   postService = inject(PostService);
+  themeService = inject(ThemeService)
 
-  date: Date = new Date()
   categories: Category[] | undefined;
+  date: Date = new Date();
+  Toast = Swal.mixin({
+    toast: true,
+    position: 'center',
+    showConfirmButton: false,
+    showCloseButton: true,
+    timer: 5000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
   myForm: FormGroup = new FormGroup({
     title: new FormControl(null, [Validators.required]),
@@ -61,9 +75,11 @@ export class NewPostComponent {
   }
 
   onSubmit() {
-    console.log(this.myForm.value);
-
-    this.postService.create(this.myForm.value)
-    this.myForm.reset()
+    this.postService.create(this.myForm.value);
+    this.Toast.fire({
+      icon: 'success',
+      title: 'New Post Created Successfully!',
+    });
+    this.myForm.reset();
   }
 }

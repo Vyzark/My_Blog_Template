@@ -1,5 +1,5 @@
-<div class="container row mx-auto">
-    <div class="tech text-center my-4 mx-lg-5 col-12">
+<div class="container row mx-auto justify-content-center" [class]="{'dark': themeService.isDark}">
+    <div class="tech text-center mb-4 mt-1 mx-lg-5 col-12">
         <h1>add<span class="font">(</span>new info_bit<span class="font">)</span></h1>
         <hr class="mx-5">
     </div>
@@ -41,11 +41,10 @@
         <p-editor [style]="{ height: '320px' }" formControlName="content" />
         <div class="row d-flex my-4 align-items-center">
             <label for="datePublished" class="col-md-1 col-12">Published: </label>
-            <!-- TODO: FIX COLOR FOR DARK MODE -->
-            <input type="text" class="col-md-4 col-12 border-0" [value]="date | date: 'dd/MM/yyyy HH:mm'"
+            <input type="text" class="date col-md-4 col-12 border-0" [value]="date | date: 'dd/MM/yyyy HH:mm'"
                 [disabled]="true">
             <input type="date" id="datePublished" class="d-none" [value]="date" formControlName="featured">
-            <p-button label="Submit" type="submit" class="col offset-md-5 my-4" icon="pi pi-check" iconPos="right"
+            <p-button label="Submit" type="submit" class="col offset-md-5 my-4" icon="pi pi-check" iconPos="right" styleClass="submit-btn"
                 [disabled]="myForm.invalid" />
         </div>
     </form>

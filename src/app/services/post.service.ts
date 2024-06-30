@@ -19,15 +19,23 @@ export class PostService {
     localStorage.setItem('archive', JSON.stringify(this.postList));
   }
 
-  getAll(): Post[] {
+  getFromLocal() {
     if (localStorage.getItem('archive')) {
-      this.postList = JSON.parse(localStorage.getItem('archive')!);
+      return JSON.parse(localStorage.getItem('archive')!);
     }
+  }
+
+  getAll(): Post[] {
+    this.postList = this.getFromLocal()
     return this.postList;
   }
 
   getByCategory(cat: string): Post[] {
-    return this.postList.filter((post) => post.category === cat);
+
+    this.postList = this.getFromLocal()
+    console.log(this.postList.filter((post) => post.category.category === cat));
+
+    return this.postList.filter((post) => post.category.category === cat);
   }
 
   capitalize(string: string) {

@@ -1,9 +1,10 @@
 .tech {
   font-family: "Ice Hockey", sans-serif;
+  color: black;
 }
 
 .body-bg {
-  /* TODO: Fix bg-img height and display properties */
+  /* TODO: Change to dark Background depending on theme */
   height: 200vh;
   background-image: url("https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-position: center;
@@ -72,7 +73,7 @@ p-inputGroup {
 }
 .featured {
   position: relative;
-  top: 75vh;
+  top: 65vh;
 }
 
 form.ng-submitted input.ng-invalid {

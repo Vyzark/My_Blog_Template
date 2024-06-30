@@ -1,4 +1,4 @@
-<div class="wrapper p-4">
+<div class="wrapper p-4" [class]="{'dark': themeService.isDark}">
     <div class="row">
         <figure class="card-img-body col-12 px-3 pb-0 col-lg-4 pe-lg-3">
             <img class="card-img pb-3" [alt]="myPost2().title + ' by ' + myPost2().author" [src]="myPost2().img_url" />
