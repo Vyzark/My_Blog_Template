@@ -2,21 +2,18 @@
     <div class="row">
         <div class="card-body col-12 ps-3 pb-3 col-lg-8">
             <div class="title m-0">
-                <h2 class="mt-0 mb-2 pt-0">Title</h2>
+                <h2 class="m-0 mb-1 pt-0">{{myPost().title}}</h2>
+                <p class="fs-6 m-0 text-body-secondary">by {{myPost().author}}</p>
             </div>
             <div class="text">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolor. Distinctio nostrum adipisci
-                    error perspiciatis ex, incidunt aliquam modi, iure cumque est alias fugit a! Perspiciatis, fugit
-                    reprehenderit. Vel rerum fuga incidunt! Eligendi aliquid tempore quaerat. Inventore iusto deserunt
-                    laborum! Cumque molestiae consectetur quisquam sapiente, expedita magnam. Quo, laudantium est?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui esse ex aliquam obcaecati iure non magni sunt quo itaque, omnis sequi ea eligendi odit atque reiciendis rem rerum hic. Reiciendis aspernatur, quae optio voluptate perferendis veritatis omnis doloribus eos illo molestias beatae mollitia impedit placeat consectetur tempore nisi aut nesciunt?
-                </p>
+                <p class="m-0 p-2" [innerHTML]="myPost().content"></p>
             </div>
-            <p-button label="Read more" [text]="true" [raised]="true" severity="info" />
+            <div class="btn mt-3">
+                <p-button class="read-more" label="Read more" [text]="true" [raised]="true" severity="info" />
+            </div>
         </div>
         <figure class="card-img-body col-12 px-3 pb-0 col-lg-4 pe-lg-3">
-            <img class="card-img" alt="" src="https://picsum.photos/450/250" />
+            <img class="card-img pb-3" [alt]="myPost().title + ' by ' + myPost().author" [src]="myPost().img_url" />
         </figure>
     </div>
 </div>

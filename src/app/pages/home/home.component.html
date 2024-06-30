@@ -24,23 +24,23 @@
 
 <div class="feature-container container row">
     <div class="featured-title text-center my-4 col-8">
-
+        <!-- TODO: Title color needs to be always black -->
         <h3 class="tech"><i class="pi pi-folder-open fs-1"></i> Featured <i>Bits</i></h3>
         <hr class="mx-5">
     </div>
 
     <div class="featured col-10">
+        <!-- TODO: FIX FEATURED LIST -->
         @for (post of postList; track $index; let even = $even) {
             @if (even) {
-                <post-card [myPost]="post"></post-card>
+                <post-card [myPost]="post" />
+                <p-divider />
+            } @else {
+                <post-card2 [myPost2]="post" />
+                <p-divider />
             }
         } @empty {
         <h3 class="text-body-secondary text-center col-8 offset-1">The featured folder is empty.</h3>
-        }
-        @for (post2 of postList; track $index; let odd = $odd) {
-            @if (odd) {
-                <post-card2 [myPost2]="post2"></post-card2>
-            }
         }
     </div>
 </div>

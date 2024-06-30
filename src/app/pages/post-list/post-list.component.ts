@@ -29,6 +29,8 @@ export class PostListComponent {
 
   ngOnInit() {
     this.postList = this.postService.getAll();
+    console.log(this.postList[0].content);
+    
   }
 
   filterList(cat: string) {

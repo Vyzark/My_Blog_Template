@@ -5,25 +5,32 @@ div.wrapper {
 img {
   display: block;
   width: 100%;
-  margin: 0px auto;
+  height: 259.9px;
+  margin: 0px;
 }
 figure {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
+  align-content: center;
 }
 
 div.wrapper {
   text-wrap: pretty;
-  max-height: calc(30vh * var(--base));
+  max-height: calc(60vh * var(--base));
   background-color: var(--bg-color);
   box-shadow: 2px 2px 5px #00000030;
+
+  @media (width > 991.98px) {
+    max-height: calc(30vh * var(--base));
+  }
 }
+
 div.card-body {
   position: relative;
   line-height: var(--base);
 
   @media (width > 991.98px) {
-    & a.read-more {
+    & p-button.read-more {
       position: absolute;
       bottom: 0;
       left: 16px;
@@ -31,12 +38,15 @@ div.card-body {
   }
 }
 .title {
-    color: black;
+  color: black;
 }
 .text p {
-  font-size: var(--base) rem;
   max-height: calc(12vh * var(--base));
   position: relative;
+  top: -12px;
+  left: -8px;
+
+  font-size: var(--base) rem;
   color: #444;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -44,13 +54,3 @@ div.card-body {
   -webkit-line-clamp: 6;
   display: -webkit-box;
 }
-/* .card-body p:after {
-    content: "";
-    background: linear-gradient(to right, transparent, var(--bg-color) 80%);
-    display: block;
-    height: calc(1.481vh * var(--base) + 1px);
-    position: absolute;
-    inset-block-end: 0;
-    pointer-events: none;
-    width: 100%;
-} */

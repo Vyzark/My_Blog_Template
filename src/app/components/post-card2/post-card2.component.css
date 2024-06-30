@@ -5,27 +5,34 @@ div.wrapper {
 img {
   display: block;
   width: 100%;
+  height: 259.9px;
   margin: 0px auto;
 }
 figure {
   margin: 0;
   padding: 0;
+  align-content: center;
 }
 
 div.wrapper {
   text-wrap: pretty;
-  max-height: calc(30vh * var(--base));
+  max-height: calc(60vh * var(--base));
   background-color: var(--bg-color);
   box-shadow: 2px 2px 5px #00000030;
+
+  @media (width > 991.98px) {
+    max-height: calc(30vh * var(--base));
+  }
 }
+
 div.card-body {
   position: relative;
   line-height: var(--base);
 
   @media (width > 991.98px) {
-    & a.read-more {
+    & p-button.read-more {
       position: absolute;
-      bottom: 0;
+      bottom: 0px;
       left: 16px;
     }
   }
@@ -34,9 +41,12 @@ div.card-body {
   color: black;
 }
 .text p {
-  font-size: var(--base) rem;
   max-height: calc(12vh * var(--base));
   position: relative;
+  top: -12px;
+  left: -8px;
+
+  font-size: var(--base) rem;
   color: #444;
   overflow: hidden;
   text-overflow: ellipsis;

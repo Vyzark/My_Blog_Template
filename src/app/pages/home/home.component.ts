@@ -14,6 +14,7 @@ import { CardModule } from 'primeng/card';
 import { PostCard2Component } from '../../components/post-card2/post-card2.component';
 import { Post } from '../../interfaces/post.interface';
 import { PostService } from '../../services/post.service';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'home',
@@ -26,6 +27,7 @@ import { PostService } from '../../services/post.service';
     ReactiveFormsModule,
     FormsModule,
     CardModule,
+    DividerModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
