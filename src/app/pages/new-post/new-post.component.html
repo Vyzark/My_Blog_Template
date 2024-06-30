@@ -1,1 +1,52 @@
-<p>new-post works!</p>
+<div class="container row mx-auto">
+    <div class="tech text-center my-4 mx-lg-5 col-12">
+        <h1>add<span class="font">(</span>new info_bit<span class="font">)</span></h1>
+        <hr class="mx-5">
+    </div>
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <p-floatLabel class="col-12 col-md-6 mb-4">
+                <input id="title" type="text" class="w-100" pInputText formControlName="title" />
+                <label for="title">Title</label>
+            </p-floatLabel>
+            <p-floatLabel class="col-12 col-md-6 mb-4">
+                <input id="author" type="text" class="w-100" pInputText formControlName="author" />
+                <label for="author">Author</label>
+            </p-floatLabel>
+        </div>
+        <div class="row">
+            <div class="col-11 col-md-6 mb-4">
+                <p-floatLabel>
+                    <p-dropdown [options]="categories" optionLabel="category" [filter]="true" filterBy="category"
+                        [style]="{width: '100%'}" [showClear]="true" placeholder="Select a Category"
+                        inputId="float-label" formControlName="category" />
+                    <label for="float-label">Select a Category</label>
+                </p-floatLabel>
+            </div>
+            <div class="col d-flex justify-content-start align-items-center">
+                <p-checkbox class="mb-4" value="Featured" inputId="featured" formControlName="featured" />
+                <label class="ms-2 mb-4" for="featured">Featured</label>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <p-iconField iconPosition="left">
+                <p-inputIcon styleClass="pi pi-image" />
+                <input class="w-100" type="text" pInputText placeholder="Image URL: https://example.com"
+                    formControlName="img_url" />
+            </p-iconField>
+        </div>
+
+        <p-editor [style]="{ height: '320px' }" formControlName="content" />
+        <div class="row d-flex my-4 align-items-center">
+            <label for="datePublished" class="col-md-1 col-12">Published: </label>
+            <input type="text" class="col-md-4 col-12 border-0" [value]="date | date: 'dd/MM/yyyy HH:mm'"
+                [disabled]="true">
+            <input type="date" id="datePublished" class="d-none" [value]="date | date: 'dd/MM/yyyy HH:mm'"
+                formControlName="featured">
+            <p-button label="Submit" type="submit" class="col offset-md-5 my-4" icon="pi pi-check" iconPos="right" />
+            <!-- [disabled]="myForm.invalid" -->
+        </div>
+    </form>
+</div>

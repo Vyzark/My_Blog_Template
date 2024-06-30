@@ -7,11 +7,11 @@ import { Post } from '../interfaces/post.interface';
 export class PostService {
   private postList: Post[] = [];
   categoryList = [
-    { category: 'code', icon: 'pi pi-code' },
-    { category: 'technology', icon: 'pi pi-microchip' },
-    { category: 'science', icon: 'pi pi-chart-scatter' },
-    { category: 'media', icon: 'pi pi-hashtag' },
-    { category: 'finance', icon: 'pi pi-bitcoin' },
+    { category: 'Code', icon: 'pi pi-code' },
+    { category: 'Technology', icon: 'pi pi-microchip' },
+    { category: 'Science', icon: 'pi pi-chart-scatter' },
+    { category: 'Media', icon: 'pi pi-hashtag' },
+    { category: 'Finance', icon: 'pi pi-bitcoin' },
   ];
 
   create(post: Post) {

@@ -6,5 +6,5 @@ export interface Post {
     category: string;
     featured: boolean;
     published_at: Date;
-    last_edit_at: Date;
+    last_edit_at?: Date;
 }

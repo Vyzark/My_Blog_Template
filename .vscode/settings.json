@@ -21,7 +21,11 @@
   "peacock.color": "#176194",
   "cSpell.words": [
     "buttongroup",
+    "floatlabel",
+    "iconfield",
     "inputgroup",
+    "inputicon",
+    "inputtext",
     "lara",
     "swal",
     "Swal",
