@@ -4,15 +4,7 @@ export interface Post {
     author: string;
     img_url: string;
     category: string;
+    featured: boolean;
     published_at: Date;
     last_edit_at: Date;
-}
-
-// TODO: Erase if not used
-interface Category {
-    technology: string;
-    science: string;
-    politics: string;
-    finance: string;
-    varied: string;
 }

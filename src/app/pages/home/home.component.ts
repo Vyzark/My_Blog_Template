@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, inject } from '@angular/core';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { ButtonModule } from 'primeng/button';
 import { PostCardComponent } from '../../components/post-card/post-card.component';
@@ -12,6 +12,8 @@ import {
 } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { PostCard2Component } from '../../components/post-card2/post-card2.component';
+import { Post } from '../../interfaces/post.interface';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'home',
@@ -30,9 +32,15 @@ import { PostCard2Component } from '../../components/post-card2/post-card2.compo
   encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent {
-  submitted: boolean = false;
-  //TODO: TEST NEW EMAIL VALIDATOR: /(?<username>[\w\.-]+)@(?<domain>[\w\.-]+)\.(?<tld>[a-zA-Z]{2,6})/
+  // Injections
+  postService = inject(PostService);
 
+  // Simple variables and lists
+  submitted: boolean = false;
+  postList: Post[] = [];
+
+  // Object proprieties
+  //TODO: TEST NEW EMAIL VALIDATOR: /(?<username>[\w\.-]+)@(?<domain>[\w\.-]+)\.(?<tld>[a-zA-Z]{2,6})/
   myForm: FormGroup = new FormGroup({
     email: new FormControl(null, [
       Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$'),
@@ -51,8 +59,10 @@ export class HomeComponent {
     },
   });
 
+  // Methods
   ngOnInit() {
     document.body.classList.add('body-bg');
+    this.postList = this.postService.getByCategory("featured");//.filter(post => post.featured);
   }
 
   ngOnDestroy() {

@@ -1,3 +1,7 @@
+.tech {
+  font-family: "Ice Hockey", sans-serif;
+}
+
 .body-bg {
   /* TODO: Fix bg-img height and display properties */
   height: 200vh;
@@ -62,6 +66,10 @@ p-inputGroup {
   }
 }
 
+.featured-title {
+  position: relative;
+  top: 62vh;
+}
 .featured {
   position: relative;
   top: 75vh;

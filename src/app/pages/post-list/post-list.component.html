@@ -1,15 +1,30 @@
-<div class="title text-center my-4">
-    <h1>bits_archive</h1>
-    <hr class="mx-5">
-</div>
-
 <div class="container">
-    <!-- @for (post of postList; track $index) {
+    <div class="title text-center my-4 mx-lg-5">
+        <h1>bits_archive</h1>
+        <hr class="mx-5">
+    </div>
 
-        } -->
-    <post-card />
-    <p-divider />
-    <post-card2 />
-    <p-divider />
-    <post-card />
+    <div class="buttons d-flex justify-content-center">
+        <!-- TODO: Change to a Tab Menu with active item tracking -->
+        <p-buttonGroup>
+            <p-button label="All" icon="pi pi-asterisk" size="small" (onClick)="filterList('all')" />
+            @for (cat of postService.categoryList; track $index) {
+            <p-button [label]="postService.capitalize(cat.category)" [icon]="cat.icon" size="small"
+                (onClick)="filterList(cat.category)" [class]="cat.category" />
+            }
+        </p-buttonGroup>
+    </div>
+
+    <div class="mx-auto justify-content-center">
+        @for (post of postList; track $index) {
+        <post-card [myPost]="post" />
+        <p-divider />
+        } @empty {
+        <h2 class="text-center mt-5 text-body-secondary">The folder is empty.</h2>
+        }
+        @for (post2 of postList; track $index) {
+        <post-card2 [myPost2]="post2" />
+        <p-divider />
+        }
+    </div>
 </div>
