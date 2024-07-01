@@ -50,6 +50,7 @@ ul li span {
   top: 0;
   left: 0;
   width: 100%;
+  min-width: 36px;
   height: 100%;
   display: flex !important;
   justify-content: center;

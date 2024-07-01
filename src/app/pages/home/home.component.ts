@@ -10,12 +10,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { CardModule } from 'primeng/card';
 import { PostCard2Component } from '../../components/post-card2/post-card2.component';
 import { Post } from '../../interfaces/post.interface';
 import { PostService } from '../../services/post.service';
 import { DividerModule } from 'primeng/divider';
 import { ThemeService } from '../../services/theme.service';
+import { InputTextModule } from 'primeng/inputtext';
+import { RouterLink } from '@angular/router';
+import { DialogModule } from 'primeng/dialog';
 
 @Component({
   selector: 'home',
@@ -27,8 +29,10 @@ import { ThemeService } from '../../services/theme.service';
     PostCard2Component,
     ReactiveFormsModule,
     FormsModule,
-    CardModule,
     DividerModule,
+    InputTextModule,
+    RouterLink,
+    DialogModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -42,6 +46,7 @@ export class HomeComponent {
   // Simple variables and lists
   submitted: boolean = false;
   postList: Post[] = [];
+  visible: boolean = false;
 
   // Object proprieties
   //TODO: TEST NEW EMAIL VALIDATOR: /(?<username>[\w\.-]+)@(?<domain>[\w\.-]+)\.(?<tld>[a-zA-Z]{2,6})/
@@ -100,5 +105,9 @@ export class HomeComponent {
         });
       }
     }
+  }
+
+  showDialog() {
+    this.visible = true;
   }
 }

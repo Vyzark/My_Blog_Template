@@ -1,6 +1,6 @@
 div.wrapper {
   --base: 1.22;
-  --bg-color: #ffffff80;
+  --bg-color: #ffffffee;
 }
 img {
   display: block;
@@ -21,7 +21,7 @@ div.wrapper {
   box-shadow: 2px 2px 5px #00000030;
 
   &.wrapper.dark {
-    background-color: #ffffffee;
+    background-color: var(--bg-color);
   }
 
   @media (width > 991.98px) {

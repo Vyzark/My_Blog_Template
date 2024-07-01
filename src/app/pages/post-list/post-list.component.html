@@ -8,24 +8,23 @@
         <p-buttonGroup class="mb-4">
             <p-button label="All" icon="pi pi-asterisk" size="small" (onClick)="filterList('all')" />
             @for (cat of postService.categoryList; track $index) {
-                <p-button [label]="postService.capitalize(cat.category)" [icon]="cat.icon" size="small"
+                <p-button [label]="cat.category" [icon]="cat.icon" size="small"
                     (onClick)="filterList(cat.category)" [class]="cat.category" />
             }
         </p-buttonGroup>
     </div>
 
     <div class="mx-auto justify-content-center">
-        <!-- TODO: Fix for loop to print even/odds -->
         @for (post of postList; track $index; let even = $even) {
-        @if (even) {
-        <post-card [myPost]="post" />
-        <p-divider />
-        } @else {
-        <post-card2 [myPost2]="post" />
-        <p-divider />
-        }
+            @if (even) {
+                <post-card [myPost]="post" />
+                <p-divider />
+            } @else {
+                <post-card2 [myPost2]="post" />
+                <p-divider />
+            }
         } @empty {
-        <h2 class="text-center mt-5 text-body-secondary">The folder is empty.</h2>
+            <h2 class="text-center mt-5 text-body-secondary">The folder is empty.</h2>
         }
     </div>
 </div>

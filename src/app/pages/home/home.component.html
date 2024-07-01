@@ -1,42 +1,58 @@
-<div class="hero">
-    <div class="title row container mx-auto">
-        <h1 class="col-12 text-wrap">Your Daily <i class="bit">bit</i> Blog</h1>
+<div class="hero tech row" [class]="{'dark': themeService.isDark}">
+    <div class="title container mx-auto">
+        <h1 class="col-12 text-wrap mt-5">Your Daily <i class="bit">bit</i> Blog</h1>
     </div>
-    <div class="sub row container mx-auto">
-        <!-- TODO: Remove p-card for a normal styled div with less white-space -->
-        <!-- TODO: Add transparency to bg of container -->
-        <p-card styleClass="user-form" class="flex justify-content-center">
-            <form class="col-3 col-md-6 mx-auto" [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
-                <p-inputGroup class="d-block">
-                    <button type="submit" class="w-25" pButton label="Subscribe"></button>
-                    <input id="subscribe" type="email" pInputText placeholder="name@example.com"
-                        formControlName="email" />
-                </p-inputGroup>
-                @if (submitted && myForm.dirty && myForm.invalid) {
-                <div>
-                    <small class="d-block p-error">Invalid email address</small>
+    <div class="buttons container row justify-content-center">
+        <p-button class="btn col-12 col-lg-4 offset-2 m-0" size="large" label="Subscribe( )" icon="pi pi-file-import"
+            iconPos="right" (click)="showDialog()" />
+        <p-button class="btn col-12 col-lg-4 offset-2 m-0" size="large" label="go_to_Archive" [raised]="true"
+            severity="secondary" routerLink="/posts" />
+
+        <!-- TODO: Fix form submission -->
+         <!-- ######################### -->
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+            <p-dialog header="Subscribe" [modal]="true" [(visible)]="visible" [style]="{ width: '28rem' }">
+                <span class="text-body-secondary d-block mb-3">Enter email address</span>
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <label for="email" class="w-50">Email</label>
+                    <input pInputText id="email" class="d-flex" autocomplete="off" formControlName="email" />
                 </div>
-                }
-            </form>
-        </p-card>
+                <div class="d-flex justify-content-end gap-2">
+                    <p-button label="archive.destroy( )" severity="secondary" (click)="visible = false" />
+                    <p-button type="submit" label="archive.subscribe( )" (click)="visible = false" />
+                </div>
+            </p-dialog>
+        </form>
+        <!-- <form class="col-3 col-md-6 mx-auto" [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+            <p-inputGroup class="mt-5">
+                <button type="submit" pButton label="Subscribe"></button>
+                <input id="subscribe" type="email" pInputText placeholder="name@example.com" formControlName="email" />
+            </p-inputGroup>
+
+            @if (submitted && myForm.dirty && myForm.invalid) {
+            <div>
+                <small class="d-block p-error">Invalid email address</small>
+            </div>
+            }
+        </form> -->
     </div>
 </div>
 
-<div class="feature-container container row">
-    <div class="featured-title text-center my-4 col-8">
+<div class="feature-container container row mx-auto justify-content-center">
+    <div id="featured" class="featured-title text-center my-4 col-8">
         <h3 class="tech"><i class="pi pi-folder-open fs-1"></i> Featured <i>Bits</i></h3>
         <hr class="mx-5">
     </div>
 
     <div class="featured col-10">
         @for (post of postList; track $index; let even = $even) {
-            @if (even) {
-                <post-card [myPost]="post" />
-                <p-divider />
-            } @else {
-                <post-card2 [myPost2]="post" />
-                <p-divider />
-            }
+        @if (even) {
+        <post-card [myPost]="post" />
+        <p-divider />
+        } @else {
+        <post-card2 [myPost2]="post" />
+        <p-divider />
+        }
         } @empty {
         <h3 class="text-body-secondary text-center col-8 offset-1">The featured folder is empty.</h3>
         }
