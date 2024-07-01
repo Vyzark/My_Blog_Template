@@ -44,7 +44,7 @@ export class HomeComponent {
   themeService = inject(ThemeService);
 
   // Simple variables and lists
-  submitted: boolean = false;
+  // submitted: boolean = false;
   postList: Post[] = [];
   visible: boolean = false;
 
@@ -79,7 +79,8 @@ export class HomeComponent {
   }
 
   onSubmit() {
-    this.submitted = this.myForm.value.email === '' ? false : true;
+    // this.submitted = this.myForm.value.email === '' ? false : true;
+    this.visible = false
 
     if (
       this.myForm.valid &&
