@@ -3,28 +3,29 @@
         <h1>bits_archive</h1>
         <hr class="mx-5">
     </div>
-    <div class="buttons d-flex justify-content-center">
-        <!-- TODO: Change to a Tab Menu with active item tracking -->
-        <p-buttonGroup class="mb-4">
-            <p-button label="All" icon="pi pi-asterisk" size="small" (onClick)="filterList('all')" />
-            @for (cat of postService.categoryList; track $index) {
-                <p-button [label]="cat.category" [icon]="cat.icon" size="small"
-                    (onClick)="filterList(cat.category)" [class]="cat.category" />
-            }
-        </p-buttonGroup>
-    </div>
-
-    <div class="mx-auto justify-content-center">
-        @for (post of postList; track $index; let even = $even) {
+    <div class="wrapper p-5 container shadow mt-5">
+        <div class="buttons d-flex justify-content-center">
+            <!-- TODO: Change to a Tab Menu with active item tracking -->
+            <p-buttonGroup class="mb-4">
+                <p-button label="All" icon="pi pi-asterisk" size="small" (onClick)="filterList('all')" />
+                @for (cat of postService.categoryList; track $index) {
+                <p-button [label]="cat.category" [icon]="cat.icon" size="small" (onClick)="filterList(cat.category)"
+                    [class]="cat.category" />
+                }
+            </p-buttonGroup>
+        </div>
+        <div class="mx-auto justify-content-center">
+            @for (post of postList; track $index; let even = $even) {
             @if (even) {
-                <post-card [myPost]="post" />
-                <p-divider />
+            <post-card [myPost]="post" />
+            <p-divider />
             } @else {
-                <post-card2 [myPost2]="post" />
-                <p-divider />
+            <post-card2 [myPost2]="post" />
+            <p-divider />
             }
-        } @empty {
+            } @empty {
             <h2 class="text-center mt-5 text-body-secondary">The folder is empty.</h2>
-        }
+            }
+        </div>
     </div>
 </div>

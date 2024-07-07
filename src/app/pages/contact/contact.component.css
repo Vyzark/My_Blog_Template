@@ -1,0 +1,11 @@
+.contact-ul {
+    list-style: none;
+    padding: 0;
+  & > li span {
+    font-weight: 500;
+  }
+}
+
+div.row p-floatLabel span {
+    color: crimson;
+}

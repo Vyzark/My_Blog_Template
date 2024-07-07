@@ -52,7 +52,7 @@ export class HomeComponent {
   //TODO: TEST NEW EMAIL VALIDATOR: /(?<username>[\w\.-]+)@(?<domain>[\w\.-]+)\.(?<tld>[a-zA-Z]{2,6})/
   myForm: FormGroup = new FormGroup({
     email: new FormControl(null, [
-      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$'),
+      Validators.pattern(/^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/),
     ]),
   });
   Toast = Swal.mixin({
@@ -79,7 +79,6 @@ export class HomeComponent {
   }
 
   onSubmit() {
-    // this.submitted = this.myForm.value.email === '' ? false : true;
     this.visible = false
 
     if (

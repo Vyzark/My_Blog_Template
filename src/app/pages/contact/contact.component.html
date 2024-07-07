@@ -1,1 +1,57 @@
-<p>contact works!</p>
+<div class="container row mx-auto justify-content-center" [class]="{'dark': themeService.isDark}">
+    <div class="tech text-center mb-4 mt-1 mx-lg-5 col-12">
+        <h1>contact_me</h1>
+        <hr class="mx-5">
+    </div>
+
+    <div class="wrapper p-5 container shadow mt-5 row">
+        <div class="col-12 col-lg-6">
+            <h2>Contact_me( myContactDetails )</h2>
+            <ul class="contact-ul">
+                <li><span>Address:</span> Getafe, España</li>
+                <li><span>Phone:</span> +39 351 617 5040</li>
+                <li><span>Email:</span> candeloro95&commat;gmail.com</li>
+            </ul>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <h2>Send_message( yourContactDetails )</h2>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <p-floatLabel class="col-12 col-md-6 mb-4">
+                        <input id="firstName" type="text" class="w-100" pInputText formControlName="firstName" />
+                        <label for="firstName">First Name<span>*</span></label>
+                    </p-floatLabel>
+                    <p-floatLabel class="col-12 col-md-6 mb-4">
+                        <input id="lastName" type="text" class="w-100" pInputText formControlName="lastName" />
+                        <label for="lastName">Last Name<span>*</span></label>
+                    </p-floatLabel>
+                </div>
+
+                <div class="row">
+                    <p-floatLabel class="col-12 col-md-6 mb-4">
+                        <input id="email" type="email" class="w-100" pInputText formControlName="email" />
+                        <label for="email">Email<span>*</span></label>
+                    </p-floatLabel>
+                    <p-floatLabel class="col-12 col-md-6 mb-4">
+                        <input id="phone" type="tel" class="w-100" pInputText formControlName="phone" />
+                        <label for="phone">Phone Number</label>
+                    </p-floatLabel>
+                </div>
+
+                <div class="row">
+                    <p-floatLabel class="col-12 mb-4">
+                        <textarea class="w-100" id="float-text" rows="5" cols="30" [autoResize]="true" pInputTextarea
+                            formControlName="text">
+                        </textarea>
+                        <label for="float-text">Your message<span>*</span></label>
+                    </p-floatLabel>
+                </div>
+
+                <p-button label="Submit" type="submit" class="col offset-md-5 my-4" icon="pi pi-check" iconPos="right"
+                    styleClass="submit-btn" [disabled]="myForm.invalid" />
+
+            </form>
+        </div>
+    </div>
+</div>

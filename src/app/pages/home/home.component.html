@@ -5,7 +5,7 @@
     <div class="buttons container row justify-content-center">
         <p-button class="btn col-12 col-lg-4 offset-2 m-0" size="large" label="Subscribe( )" icon="pi pi-file-import"
             iconPos="right" (click)="showDialog()" />
-        <p-button class="btn col-12 col-lg-4 offset-2 m-0" size="large" label="go_to_Archive( )" [raised]="true"
+        <p-button class="btn col-12 col-lg-4 offset-2 m-0" size="large" label="To_Archive( )" [raised]="true"
             severity="secondary" routerLink="/posts" />
 
         <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
@@ -21,18 +21,6 @@
                 </div>
             </p-dialog>
         </form>
-        <!-- <form class="col-3 col-md-6 mx-auto" [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
-            <p-inputGroup class="mt-5">
-                <button type="submit" pButton label="Subscribe"></button>
-                <input id="subscribe" type="email" pInputText placeholder="name@example.com" formControlName="email" />
-            </p-inputGroup>
-
-            @if (submitted && myForm.dirty && myForm.invalid) {
-            <div>
-                <small class="d-block p-error">Invalid email address</small>
-            </div>
-            }
-        </form> -->
     </div>
 </div>
 
